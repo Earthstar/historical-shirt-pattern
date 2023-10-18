@@ -1,0 +1,26 @@
+{
+  "name": "historical-shirt-pattern",
+  "version": "1.0.0",
+  "description": "Historical Shirt Pattern generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "live-server --open=src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Earthstar/historical-shirt-pattern.git"
+  },
+  "author": "Deena Wang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Earthstar/historical-shirt-pattern/issues"
+  },
+  "homepage": "https://github.com/Earthstar/historical-shirt-pattern#readme",
+  "engines": {
+    "node": ">10",
+    "python3": ">3.12.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

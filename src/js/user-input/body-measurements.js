@@ -1,4 +1,4 @@
-export class BodyMeasurements {
+export default class BodyMeasurements {
 	#wristToWristSpan;
 	#torsoCircumference;
 	#wristCircumference;

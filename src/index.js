@@ -41,5 +41,5 @@ As much as possible, these objects should be immutable. So generating a new patt
 creating a new Pattern object
 */
 
-import userInputTest from "./user-input/tests.js"
+import userInputTest from "./js/user-input/test.js"
 userInputTest();
