@@ -15,7 +15,8 @@ export default function userInputTest() {
 			console.assert(bodyMeasurement.wristCircumference === 3, "wristCircumference should be 3")
 			console.assert(bodyMeasurement.neckCircumference === 4, "neckCircumference should be 4")
 			console.assert(bodyMeasurement.shoulderCircumference === 5, "shoulderCircumference should be 5")
-		}
+		},
+		
 	]
 
 	for (const testFn of tests) {

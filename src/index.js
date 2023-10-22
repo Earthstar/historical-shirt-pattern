@@ -43,3 +43,6 @@ creating a new Pattern object
 
 import userInputTest from "./js/user-input/test.js"
 userInputTest();
+
+import patternPieceTest from "./js/pattern-pieces/test.js"
+patternPieceTest();
