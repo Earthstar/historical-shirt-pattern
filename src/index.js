@@ -42,7 +42,29 @@ creating a new Pattern object
 */
 
 import userInputTest from "./js/user-input/test.js"
-userInputTest();
-
 import patternPieceTest from "./js/pattern-pieces/test.js"
+
+userInputTest();
 patternPieceTest();
+
+import BodyMeasurements from "./js/user-input/body-measurements.js"
+import BodyPatternPiece from "./js/pattern-pieces/body-pattern-piece.js"
+
+function handleSubmit(event) {
+	console.log(event)
+	event.preventDefault();
+	const torsoCircumferenceElement = document.getElementById("torso-circumference");
+	const torsoCircumference = parseInt(torsoCircumferenceElement.value);
+	console.log(torsoCircumference)
+
+	const bodyMeasurements = new BodyMeasurements.Builder()
+	.setTorsoCircumference(torsoCircumference)
+	.build();
+	const bodyPatternPiece = new BodyPatternPiece(bodyMeasurements, {})
+
+	const bodyPatternPieceOutput = document.getElementById("body-pattern-piece");
+	bodyPatternPieceOutput.innerText = `Body piece width = ${bodyPatternPiece.width}; height = ${bodyPatternPiece.height}`
+}
+
+const form = document.getElementById("form");
+form.addEventListener("submit", handleSubmit);

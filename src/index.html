@@ -1,6 +1,17 @@
 <head>
-	<script type="module" src="index.js"></script>
 </head>
 <body>
-	
+	<!-- TODO: figure out inputs and outputs -->
+	<form id="form">
+		<div class="body-measurements">
+			<label for="torso-circumference">Torso Circumference</label>
+			<input type="number" name="torso-circumference" id="torso-circumference" required value="40">
+		</div>
+		<input type="submit" value="Get pattern">
+	</form>
+
+	<div id="output">
+		<p id="body-pattern-piece"></p>
+	</div>
+	<script type="module" src="index.js"></script>
 </body>
