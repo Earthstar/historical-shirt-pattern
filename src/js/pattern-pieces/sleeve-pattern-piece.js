@@ -5,12 +5,16 @@ import CONSTANTS from "../constants.js"
 export default class SleevePatternPiece extends PatternPiece {
 	name = "sleeve"
 
+	static getSleeveWidth(bodyMeasurements) {
+		return bodyMeasurements.bicepCircumference + 2 + (2 * CONSTANTS.SEAM_ALLOWANCE);
+	}
+
 	constructor(bodyMeasurements, shirtOptions) {
 		super(bodyMeasurements, shirtOptions);
 	}
 
 	get width() {
-		return (this.bodyMeasurements.bicepCircumference) + 2 + (2 * CONSTANTS.SEAM_ALLOWANCE);
+		return SleevePatternPiece.getSleeveWidth(this.bodyMeasurements);
 	}
 
 	get height() {

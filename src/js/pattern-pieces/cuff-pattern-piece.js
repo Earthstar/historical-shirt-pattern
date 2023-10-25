@@ -15,6 +15,6 @@ export default class CuffPatternPiece extends PatternPiece {
 	get height() {
 		const ease = 1;
 		const cuffOverlap = 1
-		bodyMeasurements.wristCircumference + ease + cuffOverlap + 2 * CONSTANTS.SEAM_ALLOWANCE;
+		return this.bodyMeasurements.wristCircumference + ease + cuffOverlap + 2 * CONSTANTS.SEAM_ALLOWANCE;
 	}
 }

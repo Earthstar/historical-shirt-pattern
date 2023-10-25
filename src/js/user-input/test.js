@@ -26,6 +26,7 @@ export default function userInputTest() {
 		try {
 			testFn();
 		} catch (e) {
+			console.error(e)
 		}
 	}
 }
