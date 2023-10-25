@@ -4,6 +4,7 @@ export default class BodyMeasurements {
 	#wristCircumference;
 	#neckCircumference;
 	#shoulderCircumference;
+	#bicepCircumference;
 
 	static Builder = class {
 		#wristToWristSpan;
@@ -11,6 +12,7 @@ export default class BodyMeasurements {
 		#wristCircumference;
 		#neckCircumference;
 		#shoulderCircumference;
+		#bicepCircumference;
 
 		setWristToWristSpan(wristToWristSpan) {
 			this.#wristToWristSpan = wristToWristSpan;
@@ -37,24 +39,31 @@ export default class BodyMeasurements {
 			return this;
 		}
 
+		setBicepCircumference(bicepCircumference) {
+			this.#bicepCircumference = bicepCircumference;
+			return this;
+		}
+
 		build() {
 			const bodyMeasurements = new BodyMeasurements(
 					this.#wristToWristSpan,
 					this.#torsoCircumference,
 					this.#wristCircumference,
 					this.#neckCircumference,
-					this.#shoulderCircumference
+					this.#shoulderCircumference,
+					this.#bicepCircumference
 				)
 			return bodyMeasurements;
 		}
 	}
 
-	constructor(wristToWristSpan, torsoCircumference, wristCircumference, neckCircumference, shoulderCircumference) {
+	constructor(wristToWristSpan, torsoCircumference, wristCircumference, neckCircumference, shoulderCircumference, bicepCircumference) {
 		this.#wristToWristSpan = wristToWristSpan;
 		this.#torsoCircumference = torsoCircumference;
 		this.#wristCircumference = wristCircumference;
 		this.#neckCircumference = neckCircumference;
 		this.#shoulderCircumference = shoulderCircumference;
+		this.#bicepCircumference = bicepCircumference;
 	}
 
 	get wristToWristSpan() {
@@ -75,5 +84,9 @@ export default class BodyMeasurements {
 
 	get shoulderCircumference() {
 		return this.#shoulderCircumference;
+	}
+
+	get bicepCircumference() {
+		return this.#bicepCircumference;
 	}
 }

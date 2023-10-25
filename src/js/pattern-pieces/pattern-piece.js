@@ -26,5 +26,7 @@ export default class PatternPiece {
 		throw new Error("must implement");
 	}
 
-
+	toString() {
+		return `${this.name} piece dimensions: width = ${this.width}; height = ${this.height}`
+	}
 }

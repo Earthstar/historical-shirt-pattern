@@ -63,7 +63,7 @@ function handleSubmit(event) {
 	const bodyPatternPiece = new BodyPatternPiece(bodyMeasurements, {})
 
 	const bodyPatternPieceOutput = document.getElementById("body-pattern-piece");
-	bodyPatternPieceOutput.innerText = `Body piece width = ${bodyPatternPiece.width}; height = ${bodyPatternPiece.height}`
+	bodyPatternPieceOutput.innerText = bodyPatternPiece.toString()
 }
 
 const form = document.getElementById("form");

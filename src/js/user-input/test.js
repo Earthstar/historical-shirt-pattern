@@ -9,12 +9,15 @@ export default function userInputTest() {
 			.setWristCircumference(3)
 			.setNeckCircumference(4)
 			.setShoulderCircumference(5)
+			.setBicepCircumference(6)
 			.build();
 			console.assert(bodyMeasurement.wristToWristSpan === 1, "wristToWristSpan should be 1")
 			console.assert(bodyMeasurement.torsoCircumference === 2, "torsoCircumference should be 2")
 			console.assert(bodyMeasurement.wristCircumference === 3, "wristCircumference should be 3")
 			console.assert(bodyMeasurement.neckCircumference === 4, "neckCircumference should be 4")
 			console.assert(bodyMeasurement.shoulderCircumference === 5, "shoulderCircumference should be 5")
+			console.assert(bodyMeasurement.bicepCircumference === 6, "bicepCircumference should be 6")
+
 		},
 		
 	]

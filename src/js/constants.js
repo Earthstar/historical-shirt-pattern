@@ -1,3 +1,3 @@
 export default Object.freeze({
-	EASE: .5 // in inches
+	SEAM_ALLOWANCE: .5 // in inches
 })
