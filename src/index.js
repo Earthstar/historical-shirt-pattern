@@ -52,20 +52,26 @@ import BodyPatternPiece from "./js/pattern-pieces/body-pattern-piece.js"
 import ShirtPattern from "./js/pattern-pieces/shirt-pattern.js"
 
 function handleSubmit(event) {
-	console.log(event)
 	event.preventDefault();
-	const torsoCircumferenceElement = document.getElementById("torso-circumference");
-	const torsoCircumference = parseInt(torsoCircumferenceElement.value);
-	console.log(torsoCircumference)
 
 	const bodyMeasurements = new BodyMeasurements.Builder()
-	.setTorsoCircumference(torsoCircumference)
+	.setTorsoCircumference(getBodyMeasurement("torso-circumference"))
+	.setNeckCircumference(getBodyMeasurement("neck-circumference"))
+	.setShoulderCircumference(getBodyMeasurement("shoulder-circumference"))
+	.setBicepCircumference(getBodyMeasurement("bicep-circumference"))
+	.setWristCircumference(getBodyMeasurement("wrist-circumference"))
+	.setWristToWristSpan(getBodyMeasurement("wrist-span"))
 	.build();
 
 	const shirtPattern = new ShirtPattern(bodyMeasurements, {})
 
 	const patternPieceOutput = document.getElementById("pattern-piece");
 	patternPieceOutput.innerText = shirtPattern.toString()
+}
+
+function getBodyMeasurement(name) {
+	const bodyMeasurementElement = document.getElementById(name);
+	return parseInt(bodyMeasurementElement.value);
 }
 
 const form = document.getElementById("form");

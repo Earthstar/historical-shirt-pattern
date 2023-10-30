@@ -20,6 +20,16 @@ export default class ShirtPattern {
 
 		const bodyPatternPiece = new BodyPatternPiece(bodyMeasurements, shirtOptions)
 		this.patternPieceCuttingInstructions.push(new PatternPieceCuttingInstruction(bodyPatternPiece, 1))
+		const sleevePatternPiece = new SleevePatternPiece(bodyMeasurements, shirtOptions)
+		this.patternPieceCuttingInstructions.push(new PatternPieceCuttingInstruction(sleevePatternPiece, 2))
+		const collarPatternPiece = new CollarPatternPiece(bodyMeasurements, shirtOptions)
+		this.patternPieceCuttingInstructions.push(new PatternPieceCuttingInstruction(collarPatternPiece, 1))
+		const cuffPatternPiece = new CuffPatternPiece(bodyMeasurements, shirtOptions)
+		this.patternPieceCuttingInstructions.push(new PatternPieceCuttingInstruction(cuffPatternPiece, 2))
+		const underarmGussetPatternPiece = new UnderarmGussetPatternPiece(bodyMeasurements, shirtOptions)
+		this.patternPieceCuttingInstructions.push(new PatternPieceCuttingInstruction(underarmGussetPatternPiece, 2))
+		const neckGussetPatternPiece = new NeckGussetPatternPiece(bodyMeasurements, shirtOptions)
+		this.patternPieceCuttingInstructions.push(new PatternPieceCuttingInstruction(neckGussetPatternPiece, 2))
 	}
 
 	toString() {
