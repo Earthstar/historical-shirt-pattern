@@ -50,6 +50,7 @@ patternPieceTest();
 import BodyMeasurements from "./js/user-input/body-measurements.js"
 import BodyPatternPiece from "./js/pattern-pieces/body-pattern-piece.js"
 import ShirtPattern from "./js/pattern-pieces/shirt-pattern.js"
+import {ShirtOptions, FullnessOptions} from "./js/user-input/shirt-options.js"
 
 function handleSubmit(event) {
 	event.preventDefault();
@@ -63,7 +64,10 @@ function handleSubmit(event) {
 	.setWristToWristSpan(getBodyMeasurement("wrist-span"))
 	.build();
 
-	const shirtPattern = new ShirtPattern(bodyMeasurements, {})
+	const sleeveFullnessElement = document.getElementById("sleeve=fullness");
+	const shirtOptions = new ShirtOptions(FullnessOptions[sleeveFullnessElement.value])
+
+	const shirtPattern = new ShirtPattern(bodyMeasurements, shirtOptions)
 
 	const patternPieceOutput = document.getElementById("pattern-piece");
 	patternPieceOutput.innerText = shirtPattern.toString()
