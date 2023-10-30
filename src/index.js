@@ -49,6 +49,7 @@ patternPieceTest();
 
 import BodyMeasurements from "./js/user-input/body-measurements.js"
 import BodyPatternPiece from "./js/pattern-pieces/body-pattern-piece.js"
+import ShirtPattern from "./js/pattern-pieces/shirt-pattern.js"
 
 function handleSubmit(event) {
 	console.log(event)
@@ -60,10 +61,11 @@ function handleSubmit(event) {
 	const bodyMeasurements = new BodyMeasurements.Builder()
 	.setTorsoCircumference(torsoCircumference)
 	.build();
-	const bodyPatternPiece = new BodyPatternPiece(bodyMeasurements, {})
 
-	const bodyPatternPieceOutput = document.getElementById("body-pattern-piece");
-	bodyPatternPieceOutput.innerText = bodyPatternPiece.toString()
+	const shirtPattern = new ShirtPattern(bodyMeasurements, {})
+
+	const patternPieceOutput = document.getElementById("pattern-piece");
+	patternPieceOutput.innerText = shirtPattern.toString()
 }
 
 const form = document.getElementById("form");
