@@ -14,6 +14,8 @@ export default class ShirtOptions {
 export const FullnessOptions = Object.freeze({
 	// theoretical minimum fullness that allows for free movement
     MINIMUM: Symbol("minimum"),
+    SMALL: Symbol("small"),
+    MEDIUM: Symbol("medium"),
     // theoretical maximum fullness based on 
     MAXIMUM: Symbol("maximum")
 });
