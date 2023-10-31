@@ -8,7 +8,7 @@ export default class UnderarmGussetPatternPiece extends PatternPiece {
 
 	get width() {
 		const armholeDepth = PatternDimension.getArmholeDepth(this.bodyMeasurements);
-		const sleeveWidth = SleevePatternPiece.getSleeveWidth(this.bodyMeasurements);
+		const sleeveWidth = SleevePatternPiece.getSleeveWidth(this.bodyMeasurements, this.shirtOptions);
 
 		const diff = armholeDepth - (sleeveWidth / 2)
 		if (diff < 2) {

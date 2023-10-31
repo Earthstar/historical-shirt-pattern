@@ -4,20 +4,15 @@ import CuffPatternPiece from "./cuff-pattern-piece.js"
 import NeckGussetPatternPiece from "./neck-gusset-pattern-piece.js"
 import SleevePatternPiece from "./sleeve-pattern-piece.js"
 import UnderarmGussetPatternPiece from "./underarm-gusset-pattern-piece.js"
+import PatternDimension from "./pattern-dimension.js"
 
 export default class ShirtPattern {
+	#bodyMeasurements
+	#shirtOptions
 
 	patternPieceCuttingInstructions = [];
 	
 	constructor(bodyMeasurements, shirtOptions) {
-		// ShirtPattern needs to store the fact that there are "multiple" entries for certain pattern pieces
-		// and render accordingly
-		// I also want to guarentee the ordering of the pattern pieces
-		// so maybe what I want is another data structure that holds the number of copies of the pattern piece
-		// like a PatternPieceQuantity ? this data structure answers the question 
-		// "how many individial pieces will you need to cut out?"
-		// so maybe something more like PatternPieceCuttingInstruction
-
 		const bodyPatternPiece = new BodyPatternPiece(bodyMeasurements, shirtOptions)
 		this.patternPieceCuttingInstructions.push(new PatternPieceCuttingInstruction(bodyPatternPiece, 1))
 		const sleevePatternPiece = new SleevePatternPiece(bodyMeasurements, shirtOptions)
@@ -30,13 +25,18 @@ export default class ShirtPattern {
 		this.patternPieceCuttingInstructions.push(new PatternPieceCuttingInstruction(underarmGussetPatternPiece, 2))
 		const neckGussetPatternPiece = new NeckGussetPatternPiece(bodyMeasurements, shirtOptions)
 		this.patternPieceCuttingInstructions.push(new PatternPieceCuttingInstruction(neckGussetPatternPiece, 2))
+
+		this.#bodyMeasurements = bodyMeasurements;
+		this.#shirtOptions = shirtOptions;
 	}
 
 	toString() {
-		let output = ""
+		let output = "All measurements are in inches.\n"
 		for (const instruction of this.patternPieceCuttingInstructions) {
 			output += `${instruction.numCopies}x ${instruction.patternPiece.toString()} \n`
 		}
+
+		output += `Armhole depth: ${PatternDimension.getArmholeDepth(this.#bodyMeasurements)}"\n`
 		return output
 	}
 }

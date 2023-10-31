@@ -27,6 +27,6 @@ export default class PatternPiece {
 	}
 
 	toString() {
-		return `${this.name} piece with dimensions: width = ${this.width}; height = ${this.height}`
+		return `${this.name} piece with dimensions: width = ${this.width}"; height = ${this.height}"`
 	}
 }

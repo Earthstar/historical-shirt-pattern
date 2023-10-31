@@ -6,6 +6,7 @@ import CollarPatternPiece from "./collar-pattern-piece.js"
 import PatternDimension from "./pattern-dimension.js"
 import UnderarmGussetPatternPiece from "./underarm-gusset-pattern-piece.js"
 import NeckGussetPatternPiece from "./neck-gusset-pattern-piece.js"
+import {ShirtOptions, FullnessOptions} from "../user-input/shirt-options.js"
 
 export default function patternPieceTest() {
 	const tests = [
@@ -19,17 +20,20 @@ export default function patternPieceTest() {
 			.build();
 			const bodyPatternPiece = new BodyPatternPiece(bodyMeasurements, {})
 			console.assert(bodyPatternPiece.width === 26, "width should be 26")
-			console.assert(bodyPatternPiece.height === 53, "height should be 53")
+			console.assert(bodyPatternPiece.height === 51, "height should be 51")
 		},
-		function canCalculateSleevePatternPieceDimensions() {
+		function canCalculateSleevePatternPieceDimensionsWithMinimumFullness() {
 			const bodyMeasurements = new BodyMeasurements.Builder()
 			.setBicepCircumference(13)
 			.setWristToWristSpan(47)
 			.setTorsoCircumference(40)
 			.build();
-			const sleevePatternPiece = new SleevePatternPiece(bodyMeasurements, {})
+
+			const shirtOptions = new ShirtOptions(FullnessOptions.MINIMUM)
+
+			const sleevePatternPiece = new SleevePatternPiece(bodyMeasurements, shirtOptions)
 			console.assert(sleevePatternPiece.width === 16, "width should be 16")
-			console.assert(sleevePatternPiece.height === 12, "hieght should be 12")
+			console.assert(sleevePatternPiece.height === 15, "height should be 14.5")
 		},
 		function canCalculateCuffPatternPieceDimensions() {
 			const bodyMeasurements = new BodyMeasurements.Builder()
@@ -63,7 +67,9 @@ export default function patternPieceTest() {
 			.setBicepCircumference(13)
 			.build();
 
-			const underarmGusset = new UnderarmGussetPatternPiece(bodyMeasurements, {})
+			const shirtOptions = new ShirtOptions(FullnessOptions.MINIMUM)
+
+			const underarmGusset = new UnderarmGussetPatternPiece(bodyMeasurements, shirtOptions)
 
 			console.assert(underarmGusset.width === 5.5)
 			console.assert(underarmGusset.height === 5.5)
@@ -73,7 +79,49 @@ export default function patternPieceTest() {
 
 			console.assert(neckGusset.width === 3)
 			console.assert(neckGusset.height === 3)
-		}
+		},
+		function canCalculateMaximumSleeveFullness() {
+			const bodyMeasurements = new BodyMeasurements.Builder()
+			.setBicepCircumference(13)
+			.setWristToWristSpan(47)
+			.setTorsoCircumference(40)
+			.setWristCircumference(6)
+			.build();
+
+			const shirtOptions = new ShirtOptions(FullnessOptions.MAXIMUM)
+
+			const sleevePatternPiece = new SleevePatternPiece(bodyMeasurements, shirtOptions)
+			console.assert(sleevePatternPiece.width === 74, "width should be 74")
+			console.assert(sleevePatternPiece.height === 30.5, "height should be 30.5")
+		},
+		function canCalulateSmallSleeveFullness() {
+			const bodyMeasurements = new BodyMeasurements.Builder()
+			.setBicepCircumference(13)
+			.setWristToWristSpan(47)
+			.setTorsoCircumference(40)
+			.setWristCircumference(6)
+			.build();
+
+			const shirtOptions = new ShirtOptions(FullnessOptions.SMALL)
+			const sleevePatternPiece = new SleevePatternPiece(bodyMeasurements, shirtOptions)
+
+			console.assert(sleevePatternPiece.width === 20, "width should be 20")
+			console.assert(sleevePatternPiece.height === 17, "height should be 17")
+		},
+		function canCalulateMediumSleeveFullness() {
+			const bodyMeasurements = new BodyMeasurements.Builder()
+			.setBicepCircumference(13)
+			.setWristToWristSpan(47)
+			.setTorsoCircumference(40)
+			.setWristCircumference(6)
+			.build();
+
+			const shirtOptions = new ShirtOptions(FullnessOptions.MEDIUM)
+			const sleevePatternPiece = new SleevePatternPiece(bodyMeasurements, shirtOptions)
+
+			console.assert(sleevePatternPiece.width === 24, "width should be 24")
+			console.assert(sleevePatternPiece.height === 19, "height should be 19")
+		},
 	]
 
 	for (const testFn of tests) {

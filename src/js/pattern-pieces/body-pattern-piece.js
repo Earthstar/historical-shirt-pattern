@@ -5,7 +5,7 @@ export default class BodyPatternPiece extends PatternPiece {
 	name = "body"
 
 	static getBodyWidth(torsoCircumference) {
-		return (torsoCircumference + 12) / 2;
+		return (torsoCircumference + 12) / 2 - 2 * CONSTANTS.SEAM_ALLOWANCE;
 	}
 
 	constructor(bodyMeasurements, shirtOptions) {
@@ -13,11 +13,11 @@ export default class BodyPatternPiece extends PatternPiece {
 	}
 
 	get width() {
-		return BodyPatternPiece.getBodyWidth(this.bodyMeasurements.torsoCircumference)
+		return BodyPatternPiece.getBodyWidth(this.bodyMeasurements.torsoCircumference) + 2 * CONSTANTS.SEAM_ALLOWANCE;
 	}
 
 	get height() {
 		// height includes seam allowance for hem
-		return (2 * this.width) + (2 * CONSTANTS.SEAM_ALLOWANCE);
+		return (2 * BodyPatternPiece.getBodyWidth(this.bodyMeasurements.torsoCircumference)) + (2 * CONSTANTS.SEAM_ALLOWANCE);
 	}
 }
