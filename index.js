@@ -41,16 +41,16 @@ As much as possible, these objects should be immutable. So generating a new patt
 creating a new Pattern object
 */
 
-import userInputTest from "./js/user-input/test.js"
-import patternPieceTest from "./js/pattern-pieces/test.js"
+import userInputTest from "./src/js/user-input/test.js"
+import patternPieceTest from "./src/js/pattern-pieces/test.js"
 
 userInputTest();
 patternPieceTest();
 
-import BodyMeasurements from "./js/user-input/body-measurements.js"
-import BodyPatternPiece from "./js/pattern-pieces/body-pattern-piece.js"
-import ShirtPattern from "./js/pattern-pieces/shirt-pattern.js"
-import {ShirtOptions, FullnessOptions} from "./js/user-input/shirt-options.js"
+import BodyMeasurements from "./src/js/user-input/body-measurements.js"
+import BodyPatternPiece from "./src/js/pattern-pieces/body-pattern-piece.js"
+import ShirtPattern from "./src/js/pattern-pieces/shirt-pattern.js"
+import {ShirtOptions, FullnessOptions} from "./src/js/user-input/shirt-options.js"
 
 function handleSubmit(event) {
 	event.preventDefault();
