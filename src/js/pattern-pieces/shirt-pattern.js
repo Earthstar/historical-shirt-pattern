@@ -31,7 +31,7 @@ export default class ShirtPattern {
 	}
 
 	toString() {
-		let output = "All measurements are in inches.\n"
+		let output = "All measurements are in inches. Pattern pieces include 0.5 inches of seam allowance.\n"
 		for (const instruction of this.patternPieceCuttingInstructions) {
 			output += `${instruction.numCopies}x ${instruction.patternPiece.toString()} \n`
 		}
