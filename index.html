@@ -1,28 +1,31 @@
 <head>
 </head>
 <body>
-	<!-- TODO: figure out inputs and outputs -->
+	<!-- TODO: Add instructions about how to measure each dimension.
+	Add seam allowance -->
+	<h1>Historical Pirate Shirt Generator</h1>
+	<p>Enter your body measurements in inches.</p>
 	<form id="form">
 		<div class="body-measurements">
-			<label for="torso-circumference">Torso Circumference</label>
+			<label for="torso-circumference">Torso Circumference <span title="Measure around the widest part of the torso">ⓘ</span></label>
 			<input type="number" name="torso-circumference" id="torso-circumference" required value="40">
 			<br>
-			<label for="neck-circumference">Neck Circumference</label>
+			<label for="neck-circumference">Neck Circumference <span title="Measure around the neck">ⓘ</span></label>
 			<input type="number" name="neck-circumference" id="neck-circumference" required value="14">
 			<br>
-			<label for="shoulder-circumferece">Shoulder Circumference</label>
+			<label for="shoulder-circumferece">Shoulder Circumference <span title="Wrap tape measure under armpit and over the shoulder in a vertical line">ⓘ</span></label>
 			<input type="number" name="shoulder-circumference" id="shoulder-circumference" required value="17">
 			<br>
-			<label for="bicep-circumference">Bicep Circumference</label>
+			<label for="bicep-circumference">Bicep Circumference <span title="Measure around the widest point of the upper arm">ⓘ</span></label>
 			<input type="number" name="bicep-circumference" id="bicep-circumference" required value="13">
 			<br>
-			<label for="wrist-circumference">Wrist Circumference</label>
+			<label for="wrist-circumference">Wrist Circumference <span title="Measure around the wrist">ⓘ</span></label>
 			<input type="number" name="wrist-circumference" id="wrist-circumference" required value="6">
 			<br>
-			<label for="wrist-span">Wrist-To-Wrist Span</label>
+			<label for="wrist-span">Wrist-To-Wrist Span <span title="Stand in a T pose. Measure the span from wrist to wrist, not including hands">ⓘ</span></label>
 			<input type="number" name="wrist-span" id="wrist-span" required value="47">
 			<br>
-			<label for="sleeve-fullness">Sleeve Fullness</label>
+			<label for="sleeve-fullness">Sleeve Fullness <span title="How much extra fabric to add to the sleeve length and circumference. Minimum = minimal amount of fabric needed, and will likely be too tight. Small = enough ease to comfortably move, with a small sleeve puff. Medium = more generous puff. Maximum = maximum theoretical sleeve fullness based on how much fabric can be gathered.">ⓘ</span></label>
 			<select name="sleeve-fullness" id="sleeve=fullness">
 				<option value="MINIMUM">Minimum</option>
 				<option value="SMALL" selected>Small</option>
